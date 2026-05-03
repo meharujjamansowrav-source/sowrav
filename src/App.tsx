@@ -120,7 +120,7 @@ export default function App() {
     linkedin: 'https://linkedin.com/in/meharujjaman-sowrav',
     instagram: 'https://www.instagram.com/meharuzzaman_sowrav/',
     facebook: 'https://www.facebook.com/meheruzzaman.sowrav/',
-    phone: '01881310911'
+    phone: '01891645612'
   };
 
   const containerVariants = {
@@ -147,7 +147,7 @@ export default function App() {
     
     try {
       // Construct professional WhatsApp message
-      const whatsappNumber = "8801881310911";
+      const whatsappNumber = "8801891645612";
       const message = `*New Portfolio Inquiry*\n\n` +
                       `*Name:* ${formData.firstName} ${formData.lastName}\n` +
                       `*Email:* ${formData.email}\n` +
@@ -349,7 +349,7 @@ export default function App() {
                 
                 <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-3xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
                    <img 
-                      src="/images/meharujjaman sowrav .jpg" 
+                      src="/images/hero.jpg" 
                       alt="Meharujjaman Sowrav Hero"
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                    />
@@ -392,7 +392,7 @@ export default function App() {
       <section id="services" className="py-12 md:py-32 relative bg-premium-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 md:mb-24 gsap-reveal">
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">My Quality <span className="text-brand-purple">Services</span></h2>
+            <h2 className="text-3xl md:text-[50px] font-display font-bold mb-4">My Quality <span className="text-brand-purple">Services</span></h2>
             <p className="text-white/50 max-w-xl mx-auto text-sm md:text-base">We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.</p>
           </div>
 
@@ -428,7 +428,7 @@ export default function App() {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20 gsap-reveal">
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Expertise <span className="text-brand-purple">&</span> <span className="text-gradient">Tools</span></h2>
+            <h2 className="text-3xl md:text-[50px] font-display font-bold mb-6">Expertise <span className="text-brand-purple">&</span> <span className="text-gradient">Tools</span></h2>
             <p className="text-white/50 max-w-xl mx-auto text-lg font-light leading-relaxed">Leveraging the latest technologies to build scalable, high-performance digital solutions with over 350+ satisfied clients.</p>
           </div>
 
@@ -477,7 +477,7 @@ export default function App() {
               
               <div className="space-y-1 mb-8">
                 <div className="text-4xl md:text-6xl font-display font-extrabold text-white/20 leading-none">350+</div>
-                <h2 className="text-4xl md:text-[50px] font-display font-bold leading-[1.2] tracking-tighter uppercase">
+                <h2 className="text-3xl md:text-[50px] font-display font-bold leading-[1.2] tracking-tighter uppercase">
                   <span className="text-brand-purple">Built Sites</span> <br />
                   <span className="text-white">Pure Quality.</span>
                 </h2>
@@ -538,7 +538,7 @@ export default function App() {
              <div className="w-12 h-12 bg-linear-to-br from-brand-purple to-brand-hover rounded-xl flex items-center justify-center">
                <GraduationCap className="text-white" />
              </div>
-             <h2 className="text-5xl font-display font-bold uppercase tracking-tighter">My Education.</h2>
+             <h2 className="text-3xl md:text-[50px] font-display font-bold uppercase tracking-tighter">My Education.</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -569,7 +569,7 @@ export default function App() {
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12 md:mb-24 gsap-reveal">
-            <h2 className="text-4xl md:text-[50px] font-display font-bold mb-6 md:mb-8 uppercase tracking-tighter">Recent <span className="text-brand-purple">Projects.</span></h2>
+            <h2 className="text-3xl md:text-[50px] font-display font-bold mb-6 md:mb-8 uppercase tracking-tighter">Recent <span className="text-brand-purple">Projects.</span></h2>
             <div className="border-t border-white/5 pt-8 md:pt-12">
               <p className="text-white/40 max-w-sm mx-auto text-center text-xs md:text-sm leading-relaxed">
                 A curated collection of WordPress experiences built with precision and modern design standards.
@@ -639,7 +639,7 @@ export default function App() {
             {/* Left Content */}
             <div className="lg:col-span-12 xl:col-span-5 gsap-reveal">
               <div className="lg:sticky lg:top-32">
-                <h2 className="text-4xl md:text-[50px] font-display font-bold leading-[1.1] uppercase tracking-tighter mb-8 md:mb-12">
+                <h2 className="text-3xl md:text-[50px] font-display font-bold leading-[1.1] uppercase tracking-tighter mb-8 md:mb-12">
                   <span className="block text-white/20">350+</span>
                   <span className="block text-brand-purple">Built Sites</span>
                   <span className="block text-[32px] md:text-[50px]">Pure Quality.</span>
