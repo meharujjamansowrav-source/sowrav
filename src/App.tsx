@@ -177,20 +177,22 @@ export default function App() {
   };
 
   return (
-    <div ref={heroRef} className="min-h-screen bg-premium-dark text-white selection:bg-brand-purple selection:text-white overflow-x-hidden">
+    <div ref={heroRef} className="min-h-screen bg-premium-dark text-white selection:bg-brand-purple selection:text-white overflow-x-hidden relative">
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-brand-purple z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-brand-purple z-[200] origin-left"
         style={{ scaleX }}
       />
 
-      {/* Decorative Blobs */}
-      <div className="glow-blob w-[500px] h-[500px] top-[-100px] right-[-100px]" />
-      <div className="glow-blob w-[400px] h-[400px] bottom-[10%] left-[-100px] opacity-10" />
+      {/* Decorative Blobs - Contained for mobile safety */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="glow-blob w-[300px] h-[300px] md:w-[500px] md:h-[500px] top-[-100px] right-[-50px] md:right-[-100px]" />
+        <div className="glow-blob w-[250px] h-[250px] md:w-[400px] md:h-[400px] bottom-[10%] left-[-50px] md:left-[-100px] opacity-10" />
+      </div>
 
       {/* Navigation */}
-      <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-3 md:px-6">
-        <nav className={`max-w-5xl mx-auto transition-all duration-500 rounded-full border border-white/10 ${scrolled ? 'bg-black/60 backdrop-blur-xl py-2 px-5 shadow-2xl' : 'bg-white/5 backdrop-blur-md py-2.5 px-6'}`}>
+      <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-4 md:px-6 pointer-events-none">
+        <nav className={`max-w-5xl mx-auto transition-all duration-500 rounded-full border border-white/10 pointer-events-auto ${scrolled ? 'bg-black/80 backdrop-blur-xl py-2 px-6 shadow-2xl' : 'bg-white/5 backdrop-blur-md py-2.5 px-8'}`}>
           <div className="flex justify-between items-center">
             <motion.a 
               href="#"
@@ -314,12 +316,11 @@ export default function App() {
             </div>
 
             <div className="w-full lg:col-span-5 flex justify-center hero-image">
-              <div className="relative w-full max-w-[400px] lg:max-w-[500px]">
+              <div className="relative w-full max-w-[320px] md:max-w-[500px]">
                 {/* Decorative background elements */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-purple/10 blur-[100px] rounded-full" />
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-purple/20 blur-[50px] rounded-full animate-pulse" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-purple/10 blur-[60px] md:blur-[100px] rounded-full" />
                 
-                <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-[2rem] md:rounded-[3rem] overflow-hidden border-2 border-white/5 shadow-2xl group">
+                <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-3xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
                   <img 
                      src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/meharujjaman%20sowrav%20.jpg" 
                      alt="Meharujjaman Sowrav Hero"
