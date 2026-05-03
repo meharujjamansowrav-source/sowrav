@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-purple: #8750f7;
+  --color-brand-hover: #7137f2;
+  --color-premium-dark: #0f0715;
+  --color-premium-card: #140d27;
+  --color-premium-border: #2a1454;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-premium-dark text-white font-sans antialiased selection:bg-brand-purple selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white;
+  }
+}
+
+.glow-blob {
+  @apply absolute rounded-full blur-[120px] opacity-20 pointer-events-none;
+  background: radial-gradient(circle, var(--color-brand-purple), transparent);
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/5;
+}
+
+.glass-dark {
+  @apply bg-premium-card/80 backdrop-blur-2xl border border-white/5;
+}
+
+.premium-gradient {
+  background: radial-gradient(circle at top right, rgba(135, 80, 247, 0.15), transparent),
+              radial-gradient(circle at bottom left, rgba(135, 80, 247, 0.05), transparent);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-white via-brand-purple to-white;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Infinite Vertical Scroll */
+@keyframes vertical-scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes vertical-scroll-reverse {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+.animate-vertical-scroll {
+  animation: vertical-scroll 60s linear infinite;
+}
+
+.animate-vertical-scroll-reverse {
+  animation: vertical-scroll-reverse 60s linear infinite;
+}
+
+.animate-vertical-scroll:hover,
+.animate-vertical-scroll-reverse:hover {
+  animation-play-state: paused;
+}
+
+
