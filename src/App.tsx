@@ -322,7 +322,7 @@ export default function App() {
                 
                 <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-3xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
                    <img 
-                      src="/images/hero.jpg" 
+                      src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/public/images/meharujjaman%20sowrav%20.jpg" 
                       alt="Meharujjaman Sowrav Hero"
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                    />
