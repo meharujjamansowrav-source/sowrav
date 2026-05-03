@@ -321,7 +321,7 @@ export default function App() {
                 
                 <div className="relative z-10 w-full aspect-[4/5] bg-premium-card rounded-[3rem] overflow-hidden border-2 border-white/5 shadow-2xl group">
                   <img 
-                     src="src/sowrav.jpg" 
+                     src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/meharujjaman%20sowrav%20.jpg" 
                      alt="Meharujjaman Sowrav Hero"
                      className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                   />
