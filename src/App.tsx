@@ -189,8 +189,8 @@ export default function App() {
       <div className="glow-blob w-[400px] h-[400px] bottom-[10%] left-[-100px] opacity-10" />
 
       {/* Navigation */}
-      <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-4 md:px-6">
-        <nav className={`max-w-5xl mx-auto transition-all duration-500 rounded-full border border-white/10 ${scrolled ? 'bg-black/60 backdrop-blur-xl py-2.5 px-6 shadow-2xl' : 'bg-white/5 backdrop-blur-md py-3 px-8'}`}>
+      <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-3 md:px-6">
+        <nav className={`max-w-5xl mx-auto transition-all duration-500 rounded-full border border-white/10 ${scrolled ? 'bg-black/60 backdrop-blur-xl py-2 px-5 shadow-2xl' : 'bg-white/5 backdrop-blur-md py-2.5 px-6'}`}>
           <div className="flex justify-between items-center">
             <motion.a 
               href="#"
@@ -268,10 +268,10 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <header className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-20 premium-gradient overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 w-full py-12 md:py-20 relative z-10">
-          <div className="grid grid-cols-12 gap-12 items-center">
-            <div className="col-span-12 lg:col-span-7 hero-content">
+      <header className="relative min-h-fit lg:min-h-screen flex items-center pt-24 md:pt-20 premium-gradient overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 w-full py-8 md:py-20 relative z-10">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <div className="w-full lg:col-span-7 hero-content">
               <div className="flex items-center gap-2 mb-6">
                 <span className="w-12 h-[2px] bg-brand-purple" />
                 <span className="text-brand-purple text-sm font-bold uppercase tracking-[0.3em]">Available for projects</span>
@@ -313,17 +313,17 @@ export default function App() {
               </div>
             </div>
 
-            <div className="col-span-12 lg:col-span-5 flex justify-center hero-image">
-              <div className="relative w-full max-w-[500px]">
+            <div className="w-full lg:col-span-5 flex justify-center hero-image">
+              <div className="relative w-full max-w-[400px] lg:max-w-[500px]">
                 {/* Decorative background elements */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-purple/10 blur-[100px] rounded-full" />
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-purple/20 blur-[50px] rounded-full animate-pulse" />
                 
-                <div className="relative z-10 w-full aspect-[4/5] bg-premium-card rounded-[3rem] overflow-hidden border-2 border-white/5 shadow-2xl group">
+                <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-[2rem] md:rounded-[3rem] overflow-hidden border-2 border-white/5 shadow-2xl group">
                   <img 
                      src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/meharujjaman%20sowrav%20.jpg" 
                      alt="Meharujjaman Sowrav Hero"
-                     className="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                   />
                   
                   {/* Floating badge */}
@@ -429,33 +429,67 @@ export default function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-12 md:py-32 relative bg-premium-card/30">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-20 items-center">
-            <div className="md:col-span-12 lg:col-span-5 gsap-reveal">
-              <div className="w-full aspect-[3/4] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden grayscale brightness-105 border-2 border-brand-purple/20 group">
-                <img 
-                  src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/meharujjaman%20sowrav%20Wordpress%20web%20desiginer%20and%20seo%20Expert%20.png" 
-                  alt="Meharujjaman Sowrav About" 
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0" 
-                />
+      {/* About Section - Redesigned without image */}
+      <section id="about" className="py-20 md:py-40 relative bg-premium-card/10 overflow-hidden">
+        {/* Background Text Decal */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-display font-extrabold text-white/[0.02] whitespace-nowrap pointer-events-none select-none">
+          CREATIVE MIND
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 md:gap-32 items-start">
+            <div className="gsap-reveal">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-8 h-[1px] bg-brand-purple" />
+                <span className="text-brand-purple text-xs font-bold uppercase tracking-widest">The Story</span>
+              </div>
+              <h2 className="text-5xl md:text-8xl mb-8 font-display font-bold leading-[0.9] tracking-tighter">
+                Turning Visions <br />
+                <span className="text-brand-purple">Into Reality.</span>
+              </h2>
+              <p className="text-xl md:text-2xl text-white/60 font-light leading-relaxed mb-10 max-w-xl">
+                For over 5 years, I've been helping businesses worldwide dominate their digital niche through high-converting web design and strategic SEO.
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 border-t border-white/5">
+                {[
+                  { label: 'Aesthetics', val: 'Minimal' },
+                  { label: 'Strategy', val: 'Growth' },
+                  { label: 'Execution', val: 'Flawless' }
+                ].map((item, i) => (
+                  <div key={i}>
+                    <div className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-2">{item.label}</div>
+                    <div className="text-xl font-display font-bold">{item.val}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="md:col-span-12 lg:col-span-7 gsap-reveal">
-              <h2 className="text-4xl md:text-6xl mb-6 md:mb-8 font-display font-bold leading-tight">My <span className="text-brand-purple">Experience</span></h2>
+            <div className="gsap-reveal">
+              <h3 className="text-2xl font-display font-bold mb-8 flex items-center gap-4">
+                <Briefcase className="text-brand-purple" />
+                Work Odyssey
+              </h3>
               
-              <div className="space-y-4 md:space-y-6">
+              <div className="space-y-4">
                  {[
-                   { date: '2022 - Present', title: 'Lead Web Designer', company: 'Digital Elite' },
-                   { date: '2020 - 2022', title: 'WordPress Specialist', company: 'Creative Flow' },
-                   { date: '2019 - 2020', title: 'SEO Strategist', company: 'RankBoost' }
+                   { date: '2022 - Present', title: 'Lead Web Designer', company: 'Digital Elite', desc: 'Crafting premium digital products and brand strategies.' },
+                   { date: '2020 - 2022', title: 'WordPress Specialist', company: 'Creative Flow', desc: 'Building complex high-performance business ecosystems.' },
+                   { date: '2019 - 2020', title: 'SEO Strategist', company: 'RankBoost', desc: 'Optimizing digital footprint and organic visibility.' }
                  ].map((exp, i) => (
-                   <div key={i} className="bg-premium-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-brand-purple/30 transition-all group">
-                     <div className="text-brand-purple text-[10px] font-bold uppercase mb-2">{exp.date}</div>
-                     <div className="text-lg md:text-xl font-bold group-hover:text-brand-purple transition-all">{exp.title}</div>
-                     <div className="text-white/40 text-xs md:text-sm mt-1">{exp.company}</div>
+                   <div key={i} className="bg-white/5 p-8 rounded-3xl border border-white/5 hover:border-brand-purple/30 transition-all group relative overflow-hidden">
+                     <div className="relative z-10">
+                       <div className="flex justify-between items-start mb-4">
+                         <div className="text-brand-purple text-[10px] font-bold uppercase tracking-widest">{exp.date}</div>
+                         <ArrowRight size={16} className="-rotate-45 text-white/20 group-hover:text-brand-purple group-hover:rotate-0 transition-all" />
+                       </div>
+                       <div className="text-2xl font-display font-bold mb-2 transition-all">{exp.title}</div>
+                       <div className="text-white/40 text-sm mb-4 font-medium">{exp.company}</div>
+                       <p className="text-sm text-white/50 leading-relaxed max-w-sm">{exp.desc}</p>
+                     </div>
+                     
+                     {/* Hover background effect */}
+                     <div className="absolute inset-0 bg-linear-to-br from-brand-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                    </div>
                  ))}
               </div>
