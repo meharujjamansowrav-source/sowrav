@@ -192,7 +192,7 @@ export default function App() {
 
       {/* Navigation */}
       <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-4 md:px-6 pointer-events-none">
-        <nav className={`max-w-5xl mx-auto transition-all duration-500 rounded-full border border-white/10 pointer-events-auto ${scrolled ? 'bg-black/80 backdrop-blur-xl py-2 px-6 shadow-2xl' : 'bg-white/5 backdrop-blur-md py-2.5 px-8'}`}>
+        <nav className={`max-w-5xl mx-auto transition-all duration-500 rounded-full border pointer-events-auto ${scrolled ? 'bg-white/10 backdrop-blur-xl py-2 px-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-white/20' : 'bg-white/5 backdrop-blur-md py-2.5 px-8 border-white/10'}`}>
           <div className="flex justify-between items-center">
             <motion.a 
               href="#"
@@ -321,11 +321,11 @@ export default function App() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-purple/10 blur-[60px] md:blur-[100px] rounded-full" />
                 
                 <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-3xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
-                  <img 
-                     src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/meharujjaman%20sowrav%20.jpg" 
-                     alt="Meharujjaman Sowrav Hero"
-                     className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
-                  />
+                   <img 
+                      src="/images/hero.jpg" 
+                      alt="Meharujjaman Sowrav Hero"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
+                   />
                   
                   {/* Floating badge */}
                   <div className="absolute bottom-8 left-8 right-8 p-6 glass-dark rounded-2xl flex items-center gap-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
