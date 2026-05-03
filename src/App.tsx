@@ -436,7 +436,7 @@ export default function App() {
             <div className="md:col-span-12 lg:col-span-5 gsap-reveal">
               <div className="w-full aspect-[3/4] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden grayscale brightness-105 border-2 border-brand-purple/20 group">
                 <img 
-                  src="input_file_0.png" 
+                  src="https://github.com/meharujjamansowrav-source/sowrav/blob/main/sowrav%20.jpg" 
                   alt="Meharujjaman Sowrav About" 
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0" 
                 />
