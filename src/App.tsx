@@ -22,9 +22,16 @@ export default function App() {
   });
   
   const heroRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const statsRef = useRef(null);
   const scrollContainerRef = useRef(null);
   const { scrollYProgress } = useScroll();
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5; // Increase playback speed
+    }
+  }, []);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -186,9 +193,13 @@ export default function App() {
 
       {/* Decorative Blobs - Contained for mobile safety */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="glow-blob w-[300px] h-[300px] md:w-[500px] md:h-[500px] top-[-100px] right-[-50px] md:right-[-100px]" />
-        <div className="glow-blob w-[250px] h-[250px] md:w-[400px] md:h-[400px] bottom-[10%] left-[-50px] md:left-[-100px] opacity-10" />
+        <div className="glow-blob w-[400px] h-[400px] md:w-[600px] md:h-[600px] top-[-150px] right-[-100px] md:right-[-200px] bg-brand-purple/20 blur-[120px] rounded-full animate-pulse-slow" />
+        <div className="glow-blob w-[300px] h-[300px] md:w-[500px] md:h-[500px] bottom-[10%] left-[-100px] md:left-[-200px] bg-indigo-500/10 blur-[100px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,transparent_0%,rgba(9,9,11,0.4)_100%)]" />
       </div>
+
+      {/* Glassmorphism Grain Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-[1] opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
       {/* Navigation */}
       <div className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-4 md:px-6 pointer-events-none">
@@ -197,18 +208,14 @@ export default function App() {
             <motion.a 
               href="#"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-xl font-display font-bold tracking-tighter flex items-center gap-2 group cursor-pointer"
+              className="text-2xl font-display font-black tracking-tighter flex items-center gap-2 group cursor-pointer"
             >
-              <div className="flex flex-col leading-none">
-                <span className="text-[9px] font-bold tracking-widest uppercase transition-colors text-brand-purple">Meharujjaman</span>
-                <span className="text-lg font-bold uppercase tracking-tighter">Sowrav.</span>
-              </div>
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-brand-purple rounded-xl flex items-center justify-center text-white text-lg md:text-xl transform rotate-12 group-hover:rotate-0 transition-transform">S</div>
+              <span className="text-white hidden sm:inline text-lg">SOWRAV.</span>
             </motion.a>
 
             <div className="hidden md:flex gap-10 text-[10px] uppercase tracking-widest font-bold text-white/50">
-              {['About', 'Services', 'Work', 'Contact'].map((item) => (
+              {['About', 'Services', 'Work', 'Impact'].map((item) => (
                 <a 
                   key={item} 
                   href={`#${item.toLowerCase()}`} 
@@ -221,12 +228,13 @@ export default function App() {
 
             <div className="flex items-center gap-4">
               <motion.a 
-                href="#contact" 
+                href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-brand-purple hover:bg-brand-hover text-white px-6 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg shadow-brand-purple/20 hidden md:block"
+                className="hidden md:flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] md:text-xs font-black uppercase tracking-widest hover:bg-white/10 hover:border-brand-purple transition-all group pointer-events-auto"
               >
-                Hire Me
+                Let's Talk
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-brand-purple" />
               </motion.a>
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -270,7 +278,26 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <header className="relative min-h-fit lg:min-h-screen flex items-center pt-24 md:pt-20 premium-gradient overflow-hidden">
+      <header className="relative min-h-fit lg:min-h-screen flex items-center pt-24 md:pt-20 bg-premium-dark overflow-hidden">
+        {/* Video Background Overlay Setup */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover scale-110 opacity-30 brightness-[0.6] saturate-[1.2]"
+          >
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4" type="video/mp4" />
+          </video>
+          
+          {/* Sophisticated Dark Overlays for Text Legibility */}
+          <div className="absolute inset-0 bg-linear-to-b from-premium-dark via-premium-dark/40 to-premium-dark" />
+          <div className="absolute inset-0 bg-linear-to-r from-premium-dark/90 via-transparent to-premium-dark/40" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(124,58,237,0.15)_0%,transparent_50%)]" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 w-full py-8 md:py-20 relative z-10">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="w-full lg:col-span-7 hero-content">
@@ -279,9 +306,9 @@ export default function App() {
                 <span className="text-brand-purple text-sm font-bold uppercase tracking-[0.3em]">Available for projects</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl lg:text-[100px] mb-8 leading-[1] font-display font-bold text-white">
+              <h1 className="text-4xl md:text-6xl lg:text-[80px] mb-8 leading-[1.3] font-display font-bold text-white">
                 Designing <br />
-                <span className="text-brand-purple italic">Digital</span> Experiences
+                <span className="text-gradient italic pr-4">Digital</span> Experiences
               </h1>
               
               <p className="text-lg md:text-xl text-white/50 mb-12 max-w-xl font-light leading-relaxed">
@@ -308,7 +335,7 @@ export default function App() {
                     ))}
                   </div>
                   <div>
-                    <div className="text-sm font-bold">500+ Clients</div>
+                    <div className="text-sm font-bold">350+ Clients</div>
                     <div className="text-[10px] text-white/40 uppercase font-bold tracking-widest">Worldwide satisfied</div>
                   </div>
                 </div>
@@ -322,7 +349,7 @@ export default function App() {
                 
                 <div className="relative z-10 w-full aspect-square md:aspect-[4/5] bg-premium-card rounded-3xl md:rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl group">
                    <img 
-                      src="https://raw.githubusercontent.com/meharujjamansowrav-source/sowrav/refs/heads/main/public/images/meharujjaman%20sowrav%20.jpg" 
+                      src="/images/meharujjaman sowrav .jpg" 
                       alt="Meharujjaman Sowrav Hero"
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                    />
@@ -390,14 +417,22 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 md:py-32 bg-premium-dark relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24 gsap-reveal">
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">My <span className="text-brand-purple">Skills</span></h2>
-            <p className="text-white/50 max-w-xl mx-auto">I am skilled in a variety of modern technologies and tools to deliver top-notch results.</p>
+      <section id="skills" className="py-16 md:py-32 bg-premium-dark relative overflow-hidden">
+        {/* Animated Background for Skills */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none overflow-hidden">
+           <div className="absolute top-[5%] left-[-10%] w-[50%] h-[50%] bg-brand-purple/20 blur-[150px] rounded-full animate-pulse-slow" />
+           <div className="absolute bottom-[0%] right-[-10%] w-[60%] h-[60%] bg-indigo-500/15 blur-[180px] rounded-full animate-pulse-slow" />
+           <div className="absolute top-1/4 right-[20%] w-[30%] h-[30%] bg-brand-purple/15 blur-[120px] rounded-full animate-pulse-slow animate-delay-1000" />
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(124,58,237,0.1)_0%,transparent_80%)]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-20 gsap-reveal">
+            <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">Expertise <span className="text-brand-purple">&</span> <span className="text-gradient">Tools</span></h2>
+            <p className="text-white/50 max-w-xl mx-auto text-lg font-light leading-relaxed">Leveraging the latest technologies to build scalable, high-performance digital solutions with over 350+ satisfied clients.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
             {[
               { name: 'WordPress', icon: Layout, level: '95%' },
               { name: 'Elementor', icon: Wind, level: '98%' },
@@ -406,25 +441,25 @@ export default function App() {
               { name: 'Speed Opt', icon: Zap, level: '92%' },
               { name: 'Custom CSS', icon: Code, level: '88%' }
             ].map((skill, i) => (
-              <div 
+              <motion.div 
                 key={i}
-                className="bg-premium-card p-8 rounded-3xl border border-white/5 flex flex-col items-center group hover:border-brand-purple/50 transition-all relative overflow-hidden gsap-reveal"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="glass-card p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] flex flex-col items-center group transition-all relative overflow-hidden cursor-default"
               >
-                <div className="w-16 h-16 glass rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-purple/20 transition-all relative z-10">
-                  <skill.icon size={32} className="text-brand-purple" />
+                <div className="w-14 h-14 md:w-20 md:h-20 glass rounded-2xl md:rounded-3xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-brand-purple/20 group-hover:scale-110 transition-all duration-500 relative z-10">
+                  <skill.icon className="w-6 h-6 md:w-9 md:h-9 text-brand-purple transition-transform group-hover:rotate-12" />
                 </div>
-                <div className="text-2xl font-display font-bold mb-2 relative z-10">{skill.level}</div>
-                <div className="text-[10px] uppercase tracking-widest font-bold opacity-40 group-hover:opacity-100 transition-all relative z-10">{skill.name}</div>
+                <div className="text-2xl md:text-3xl font-display font-black mb-1 relative z-10 text-white/90 group-hover:text-white transition-colors">{skill.level}</div>
+                <div className="text-[11px] uppercase tracking-[0.2em] font-black opacity-30 group-hover:opacity-100 group-hover:text-brand-purple transition-all relative z-10">{skill.name}</div>
                 
-                {/* Progress Bar background overlay */}
-                <div className="absolute bottom-0 left-0 h-1 bg-brand-purple/30 w-full" />
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: skill.level }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                  className="absolute bottom-0 left-0 h-1 bg-brand-purple" 
-                />
-              </div>
+                {/* Visual Accent */}
+                <div className="absolute inset-0 bg-linear-to-b from-brand-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 h-[2px] bg-brand-purple w-0 group-hover:w-full transition-all duration-500" />
+              </motion.div>
             ))}
           </div>
         </div>
@@ -441,8 +476,8 @@ export default function App() {
               </div>
               
               <div className="space-y-1 mb-8">
-                <div className="text-4xl md:text-6xl font-display font-extrabold text-white/20 leading-none">300+</div>
-                <h2 className="text-5xl md:text-7xl font-display font-black leading-[0.9] tracking-tighter uppercase">
+                <div className="text-4xl md:text-6xl font-display font-extrabold text-white/20 leading-none">350+</div>
+                <h2 className="text-4xl md:text-[50px] font-display font-bold leading-[1.2] tracking-tighter uppercase">
                   <span className="text-brand-purple">Built Sites</span> <br />
                   <span className="text-white">Pure Quality.</span>
                 </h2>
@@ -478,7 +513,7 @@ export default function App() {
                    { date: '2020 - 2022', title: 'WP Specialist', company: 'Creative Flow' },
                    { date: '2019 - 2020', title: 'SEO Strategist', company: 'RankBoost' }
                  ].map((exp, i) => (
-                   <div key={i} className="bg-white/5 p-5 md:p-6 rounded-2xl border border-white/5 hover:border-brand-purple/20 transition-all group flex items-center justify-between">
+                   <div key={i} className="glass-panel p-5 md:p-6 rounded-2xl hover:border-brand-purple/30 transition-all group flex items-center justify-between">
                      <div>
                        <div className="text-brand-purple text-[9px] font-bold uppercase tracking-widest mb-1">{exp.date}</div>
                        <div className="text-lg font-display font-bold">{exp.title}</div>
@@ -529,11 +564,12 @@ export default function App() {
       {/* Portfolio Section */}
       <section id="work" className="py-12 md:py-32 bg-premium-dark relative overflow-hidden">
         {/* Background Gradient Effect */}
-        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-brand-purple/10 to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-brand-purple/20 via-transparent to-brand-purple/5 pointer-events-none" />
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-brand-purple/10 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12 md:mb-24 gsap-reveal">
-            <h2 className="text-4xl md:text-8xl font-display font-bold mb-6 md:mb-8 uppercase tracking-tighter">Recent <span className="text-brand-purple">Projects.</span></h2>
+            <h2 className="text-4xl md:text-[50px] font-display font-bold mb-6 md:mb-8 uppercase tracking-tighter">Recent <span className="text-brand-purple">Projects.</span></h2>
             <div className="border-t border-white/5 pt-8 md:pt-12">
               <p className="text-white/40 max-w-sm mx-auto text-center text-xs md:text-sm leading-relaxed">
                 A curated collection of WordPress experiences built with precision and modern design standards.
@@ -603,10 +639,10 @@ export default function App() {
             {/* Left Content */}
             <div className="lg:col-span-12 xl:col-span-5 gsap-reveal">
               <div className="lg:sticky lg:top-32">
-                <h2 className="text-4xl md:text-8xl font-display font-bold leading-[0.9] uppercase tracking-tighter mb-8 md:mb-12">
-                  <span className="block text-white/20">300+</span>
+                <h2 className="text-4xl md:text-[50px] font-display font-bold leading-[1.1] uppercase tracking-tighter mb-8 md:mb-12">
+                  <span className="block text-white/20">350+</span>
                   <span className="block text-brand-purple">Built Sites</span>
-                  <span className="block font-sans text-3xl md:text-8xl">Pure Quality.</span>
+                  <span className="block text-[32px] md:text-[50px]">Pure Quality.</span>
                 </h2>
                 
                 <p className="text-white/40 text-base md:text-xl font-light leading-relaxed mb-8 md:mb-12 max-w-sm">
@@ -642,7 +678,7 @@ export default function App() {
                 {/* Column 1 - Downwards */}
                 <div className="space-y-6 animate-vertical-scroll">
                   {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, i) => (
-                    <div key={i} className="bg-premium-card p-8 rounded-3xl border border-white/5 hover:border-brand-purple/30 transition-all group">
+                    <div key={i} className="glass-card p-8 rounded-3xl hover:border-brand-purple/30 transition-all group">
                       <div className="flex justify-between items-start mb-6">
                         <div>
                           <div className="font-bold text-lg group-hover:text-brand-purple transition-colors">{testimonial.name}</div>
@@ -664,7 +700,7 @@ export default function App() {
                 {/* Column 2 - Upwards */}
                 <div className="space-y-6 animate-vertical-scroll-reverse mt-12 md:mt-0">
                   {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, i) => (
-                    <div key={i} className="bg-premium-card p-8 rounded-3xl border border-white/5 hover:border-brand-purple/30 transition-all group">
+                    <div key={i} className="glass-card p-8 rounded-3xl hover:border-brand-purple/30 transition-all group">
                       <div className="flex justify-between items-start mb-6">
                         <div>
                           <div className="font-bold text-lg group-hover:text-brand-purple transition-colors">{testimonial.name}</div>
@@ -693,25 +729,25 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-10 md:gap-20">
             <div className="md:col-span-5 gsap-reveal">
-              <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 md:mb-8 leading-[1.1]">Let's work <br/><span className="text-brand-purple">together!</span></h2>
+              <h2 className="text-3xl md:text-[50px] font-display font-bold mb-6 md:mb-8 leading-[1.1]">Let's work <br/><span className="text-brand-purple">together!</span></h2>
               <p className="text-white/60 mb-10 md:mb-12 text-sm md:text-lg font-light leading-relaxed">
                 I design and code beautifully simple things and i love what i do. Just simple like that!
               </p>
               
               <div className="space-y-6 md:space-y-8">
                 {[
-                  { label: 'Phone', val: socialLinks.phone, icon: Phone },
-                  { label: 'Email', val: 'meharujjaman.sowrav@gmail.com', icon: Mail }
+                  { label: 'Phone', val: socialLinks.phone, icon: Phone, href: `tel:${socialLinks.phone}` },
+                  { label: 'Email', val: 'meharujjaman.sowrav@gmail.com', icon: Mail, href: 'mailto:meharujjaman.sowrav@gmail.com' }
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-6 group">
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-brand-purple transition-all group">
+                  <a key={i} href={item.href} className="flex items-center gap-6 group pointer-events-auto">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-brand-purple transition-all">
                       <item.icon size={20} className="text-brand-purple group-hover:text-white" />
                     </div>
                     <div>
                       <div className="text-[10px] uppercase tracking-widest text-white/40 font-bold mb-1">{item.label}</div>
-                      <div className="text-sm sm:text-base md:text-xl font-bold break-all">{item.val}</div>
+                      <div className="text-sm sm:text-base md:text-xl font-bold break-all group-hover:text-brand-purple transition-colors">{item.val}</div>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
               
