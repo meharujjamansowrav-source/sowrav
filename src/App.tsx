@@ -430,73 +430,70 @@ export default function App() {
         </div>
       </section>
 
-      {/* About Section - Redesigned without image */}
-      <section id="about" className="py-20 md:py-40 relative bg-premium-card/10 overflow-hidden">
-        {/* Background Text Decal */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-display font-extrabold text-white/[0.02] whitespace-nowrap pointer-events-none select-none">
-          CREATIVE MIND
-        </div>
-
+      {/* About Section - Redesigned for impact and compactness */}
+      <section id="about" className="py-16 md:py-24 relative bg-premium-card/5 overflow-hidden border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 md:gap-32 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="gsap-reveal">
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-8 h-[1px] bg-brand-purple" />
-                <span className="text-brand-purple text-xs font-bold uppercase tracking-widest">The Story</span>
+                <span className="text-brand-purple text-xs font-bold uppercase tracking-widest">About Me</span>
               </div>
-              <h2 className="text-5xl md:text-8xl mb-8 font-display font-bold leading-[0.9] tracking-tighter">
-                Turning Visions <br />
-                <span className="text-brand-purple">Into Reality.</span>
-              </h2>
-              <p className="text-xl md:text-2xl text-white/60 font-light leading-relaxed mb-10 max-w-xl">
-                For over 5 years, I've been helping businesses worldwide dominate their digital niche through high-converting web design and strategic SEO.
+              
+              <div className="space-y-1 mb-8">
+                <div className="text-4xl md:text-6xl font-display font-extrabold text-white/20 leading-none">300+</div>
+                <h2 className="text-5xl md:text-7xl font-display font-black leading-[0.9] tracking-tighter uppercase">
+                  <span className="text-brand-purple">Built Sites</span> <br />
+                  <span className="text-white">Pure Quality.</span>
+                </h2>
+              </div>
+              
+              <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-8 max-w-lg">
+                From conceptualizing brand identities to deploying high-converting architectures, I've spent half a decade bridging the gap between aesthetic brilliance and technical performance.
               </p>
               
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 border-t border-white/5">
+              <div className="flex flex-wrap gap-6 md:gap-10 py-6 border-t border-white/5">
                 {[
-                  { label: 'Aesthetics', val: 'Minimal' },
-                  { label: 'Strategy', val: 'Growth' },
-                  { label: 'Execution', val: 'Flawless' }
+                  { label: 'Experience', val: '5+ Years' },
+                  { label: 'Location', val: 'Global' },
+                  { label: 'Ethics', val: 'Excellence' }
                 ].map((item, i) => (
                   <div key={i}>
-                    <div className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-2">{item.label}</div>
-                    <div className="text-xl font-display font-bold">{item.val}</div>
+                    <div className="text-[10px] uppercase font-bold tracking-widest text-white/30 mb-1">{item.label}</div>
+                    <div className="text-lg font-display font-bold text-white/90">{item.val}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="gsap-reveal">
-              <h3 className="text-2xl font-display font-bold mb-8 flex items-center gap-4">
-                <Briefcase className="text-brand-purple" />
-                Work Odyssey
+            <div className="gsap-reveal grid gap-4">
+              <h3 className="text-xl font-display font-bold mb-4 flex items-center gap-3 text-white/80">
+                <Briefcase size={20} className="text-brand-purple" />
+                Professional Pathway
               </h3>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                  {[
-                   { date: '2022 - Present', title: 'Lead Web Designer', company: 'Digital Elite', desc: 'Crafting premium digital products and brand strategies.' },
-                   { date: '2020 - 2022', title: 'WordPress Specialist', company: 'Creative Flow', desc: 'Building complex high-performance business ecosystems.' },
-                   { date: '2019 - 2020', title: 'SEO Strategist', company: 'RankBoost', desc: 'Optimizing digital footprint and organic visibility.' }
+                   { date: '2022 - Now', title: 'Lead Designer', company: 'Digital Elite' },
+                   { date: '2020 - 2022', title: 'WP Specialist', company: 'Creative Flow' },
+                   { date: '2019 - 2020', title: 'SEO Strategist', company: 'RankBoost' }
                  ].map((exp, i) => (
-                   <div key={i} className="bg-white/5 p-8 rounded-3xl border border-white/5 hover:border-brand-purple/30 transition-all group relative overflow-hidden">
-                     <div className="relative z-10">
-                       <div className="flex justify-between items-start mb-4">
-                         <div className="text-brand-purple text-[10px] font-bold uppercase tracking-widest">{exp.date}</div>
-                         <ArrowRight size={16} className="-rotate-45 text-white/20 group-hover:text-brand-purple group-hover:rotate-0 transition-all" />
-                       </div>
-                       <div className="text-2xl font-display font-bold mb-2 transition-all">{exp.title}</div>
-                       <div className="text-white/40 text-sm mb-4 font-medium">{exp.company}</div>
-                       <p className="text-sm text-white/50 leading-relaxed max-w-sm">{exp.desc}</p>
+                   <div key={i} className="bg-white/5 p-5 md:p-6 rounded-2xl border border-white/5 hover:border-brand-purple/20 transition-all group flex items-center justify-between">
+                     <div>
+                       <div className="text-brand-purple text-[9px] font-bold uppercase tracking-widest mb-1">{exp.date}</div>
+                       <div className="text-lg font-display font-bold">{exp.title}</div>
+                       <div className="text-white/40 text-xs">{exp.company}</div>
                      </div>
-                     
-                     {/* Hover background effect */}
-                     <div className="absolute inset-0 bg-linear-to-br from-brand-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                     <ArrowRight size={18} className="-rotate-45 text-white/10 group-hover:text-brand-purple group-hover:rotate-0 transition-all shrink-0" />
                    </div>
                  ))}
               </div>
             </div>
           </div>
         </div>
+
+        {/* Subtle accent line */}
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-linear-to-r from-transparent via-brand-purple/20 to-transparent" />
       </section>
 
       {/* Education Timeline Section */}
